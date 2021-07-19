@@ -18,7 +18,7 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <FaGithub style={{ color: "#f8efd4" }} />{" "}
+        <FaGithub style={{ color: "black" }} />{" "}
       </IconButton>
 
       <a
@@ -26,7 +26,7 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Willdooo
+        Daniel Wollmann
       </a>
     </div>
   );

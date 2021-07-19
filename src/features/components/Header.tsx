@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  return <div>head</div>;
+  return <div>GitHub User Finder</div>;
 };
 
 export default Header;

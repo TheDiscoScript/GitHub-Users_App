@@ -1,6 +1,11 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {};
+interface User {
+  user: object;
+  repos: object[];
+  orgs: object[];
+}
+const initialState: any[] = [];
 
 // export interface CounterState {
 //     value: number;
@@ -16,31 +21,13 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    addUser(state, action) {},
+    addUser(state: any, action: any) {
+      state.push(action.payload);
+    },
     removeUser(state, action) {},
-    clearHistory(state, action) {},
-    //   addAstronaut: {
-    //     reducer(state, action) {
-    //       //I can do this thanks to createSlice-Redux toolkit
-    //       //This shouldn't/cannot be done in basic Redux
-    //       console.log("The action is: ");
-    //       console.log(action);
-    //       state.push(action.payload);
-    //     },
-    //     prepare(firstName, lastName, birth, superPower, text) {
-    //       return {
-    //         payload: {
-    //           //randomID
-    //           id: nanoid(),
-    //           firstName,
-    //           lastName,
-    //           birth,
-    //           superPower,
-    //           text,
-    //         },
-    //       };
-    //     },
-    //   },
+    clearHistory(state) {
+      return (state = []);
+    },
 
     //   removeAstronaut(state, action) {
     //     const id = action.payload;
@@ -71,12 +58,7 @@ const usersSlice = createSlice({
     //   clearAll(state, action) {
     //     //not sure if this is the proper way to do things, but it works
     //     return (state = []);
-    //   },
-    //   //not sure if this is the proper way to do things, but it works
-    //   addDummies(state, action) {
-    //     dummies.forEach((dummy) => state.push(dummy));
-    //     // return state.push(dummies);
-    //   },
+    //
   },
 });
 export const { addUser, removeUser, clearHistory } = usersSlice.actions;
