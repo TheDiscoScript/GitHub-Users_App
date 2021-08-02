@@ -1,4 +1,5 @@
 import { getUserData } from "./githubApi";
+
 async function modifyData(username: string) {
   const arrayOfProjects: object[] = [];
   const arrayOfOrgs: object[] = [];
@@ -16,8 +17,6 @@ async function modifyData(username: string) {
     })
   );
   const userInfo: {
-    name: string;
-    id: number;
     avatar: string;
     bio: string;
     created: string;
@@ -25,8 +24,6 @@ async function modifyData(username: string) {
     following: number;
     link: string;
   } = {
-    name: data.user.login,
-    id: data.user.id,
     avatar: data.user.avatar_url,
     bio: data.user.bio,
     created: data.user.created_at,
@@ -34,11 +31,21 @@ async function modifyData(username: string) {
     following: data.user.following,
     link: data.user.url,
   };
+  const userName: string = data.user.login;
+  const id: number = data.user.id;
 
-  const userProfile: { user: object; orgs: object[]; repos: object[] } = {
+  const userProfile: {
+    user: object;
+    orgs: object[];
+    repos: object[];
+    name: string;
+    id: number;
+  } = {
     user: userInfo,
     orgs: arrayOfOrgs,
     repos: arrayOfProjects,
+    name: userName,
+    id: id,
   };
 
   console.log(userProfile);

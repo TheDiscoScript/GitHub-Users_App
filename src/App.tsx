@@ -19,7 +19,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/user" component={User} />
+          <Route exact path="/user/:name" component={User} />
           <Route exact path="/history" component={History} />
           <Redirect to="/" />
         </Switch>
